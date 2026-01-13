@@ -1,3 +1,4 @@
+/* Styles for Home page */
 html, body {
     height: 100%;
     width: 100%;
@@ -29,6 +30,31 @@ header {
     top: 70%;
     left: 50%;
     transform: translate(-50%, -50%);
+    background: rgba(255, 255, 255, 0.8);
+    border: 2px solid #333;
+    border-radius: 5px;
+    padding: 12px 20px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+/* Styles for the game page */
+#backgroundCanvas {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    bottom: 20px;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    height: auto;
+   background-image: url('../images/BG.png');
+   background-size: cover;
+   background-position: center;
+   background-repeat: no-repeat;
+}
+
+#restartBtn,
+#homeBtn {
     background: rgba(255, 255, 255, 0.8);
     border: 2px solid #333;
     border-radius: 5px;
