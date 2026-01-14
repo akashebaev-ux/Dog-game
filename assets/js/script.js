@@ -31,6 +31,11 @@ backgroundImage.src = "assets/images/BG.png";
 let bgX = 0;
 const bgSpeed = 6;
 
+//=== OBSTACLE IMAGE === 
+const obstacleImage = new Image();
+obstacleImage.src = "assets/images/stone.png";
+
+
 //=== STEP 3 PLAYER POSITION AND PHYSICS ===
 
 //=== the main character's position  === 
@@ -75,6 +80,14 @@ for (let i = 1; i <= images_Jump; i++) {
     playerJumpImages.push(img); // returns the loaded image
 }
 
+//=== STEP 7.5 OBSTACLE SETTINGS ===
+const obstacle = {
+    x: canvas.width +300,
+    y: GROUND_Y + 150,
+    width: 200,
+    height: 120 // starts off screen
+};
+
 // STEP 8  MAIN GAME LOOP (CORE OF EVERYTHING)
 
 //=== main loop===
@@ -84,6 +97,7 @@ function animate() {
         //=== BACKGROUND MOVEMENT ===
         if (isRunning) {
             bgX -= bgSpeed;
+            obstacle.x -= bgSpeed; // Move obstacle with background
         }
         if (bgX <= -canvas.width) {
             bgX = 0;
@@ -95,6 +109,7 @@ function animate() {
 
         //=== Update ground if canvas resized ===
 GROUND_Y = canvas.height - playerHeight - FLOOR_OFFSET;
+obstacle.y = GROUND_Y + 150; // Update obstacle Y position
 
 
 // STEP 8.1 GRAVITY AND FALLING ===
@@ -129,11 +144,27 @@ else if (isRunning) {
     image = playerRunImages[0];
 }
 
-// === Draw Player ===
+// === DRAW PLAYER ===
 ctx.drawImage(image, 
     Player_Start_X, 
     playerY, playerWidth, playerHeight
 );
+
+
+// === DRAW OBSTACLE ===
+ctx.drawImage(
+    obstacleImage, 
+    obstacle.x, 
+    obstacle.y, 
+    obstacle.width, 
+    obstacle.height);
+
+
+    //=== RESET OBSTACLE WHEN OFF SCREEN ===
+if (obstacle.x + obstacle.width < 0) {
+    obstacle.x = canvas.width + Math.random() * 500; // Reset position with random offset
+}
+
 requestAnimationFrame(animate);
 }
 animate();
