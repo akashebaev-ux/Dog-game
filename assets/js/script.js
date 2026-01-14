@@ -42,13 +42,14 @@ obstacleImage.src = "assets/images/stone.png";
 const Player_Start_X = 150; // fixed horizontal position (player stays)
 const FLOOR_OFFSET = 180;
 let GROUND_Y = canvas.height - playerHeight - FLOOR_OFFSET; // floor position
-const GRAVITY = 1; // pulls player down every frame
-const JUMP_FORCE = 20; // how strong jump is 
+const GRAVITY = 0.9; // pulls player down every frame
+const JUMP_FORCE = 22; // how strong jump is 
 
 //=== STEP 4 PLAYER STATE VARIABLES ===
 
 let isJumping = false; // player is in the air
 let isRunning = false; // right key held
+let isBlocked = false; // stops player after collision 
 
 let playerY = GROUND_Y; // vertical position
 let velocityY = 0; // vertical speed
@@ -85,7 +86,8 @@ const obstacle = {
     x: canvas.width +300,
     y: GROUND_Y + 150,
     width: 200,
-    height: 120 // starts off screen
+    height: 120, // starts off screen
+    active: true // obstacle disappears after passing
 };
 
 // STEP 8  MAIN GAME LOOP (CORE OF EVERYTHING)
@@ -94,10 +96,10 @@ const obstacle = {
 function animate() {
         ctx.clearRect(0, 0, canvas.width, canvas.height); // animate() runs every frame; clearRect() clears previous frame
         
-        //=== BACKGROUND MOVEMENT ===
-        if (isRunning) {
+        //=== MOVE WORLD ===
+        if (isRunning && !isBlocked) {
             bgX -= bgSpeed;
-            obstacle.x -= bgSpeed; // Move obstacle with background
+           if (obstacle.active) obstacle.x -= bgSpeed; // Move obstacle with background
         }
         if (bgX <= -canvas.width) {
             bgX = 0;
@@ -109,7 +111,8 @@ function animate() {
 
         //=== Update ground if canvas resized ===
 GROUND_Y = canvas.height - playerHeight - FLOOR_OFFSET;
-obstacle.y = GROUND_Y + 150; // Update obstacle Y position
+obstacle.y = GROUND_Y + playerHeight - obstacle.height; // Update obstacle Y position
+
 
 
 // STEP 8.1 GRAVITY AND FALLING ===
@@ -136,7 +139,7 @@ if (isJumping) {
     jumpFrame++;
     runFrame = 0;
 } //== Slows jump animation and stops at last frame
-else if (isRunning) {
+else if (isRunning && !isBlocked) {
     const index = Math.floor(runFrame / staggerFrames) % playerRunImages.length;
     image = playerRunImages[index];
     runFrame++;
@@ -152,18 +155,61 @@ ctx.drawImage(image,
 
 
 // === DRAW OBSTACLE ===
+if (obstacle.active) {
 ctx.drawImage(
     obstacleImage, 
     obstacle.x, 
     obstacle.y, 
     obstacle.width, 
-    obstacle.height);
+    obstacle.height
+    );
+}
+
+//=== STEP 8.4 COLLISION DETECTION ===
+const playerBox = {
+        x: Player_Start_X + 80,
+        y: playerY + 100,
+        width: playerWidth - 160,
+        height: playerHeight - 140
+};
+
+const obstacleBox = {
+    x: obstacle.x,
+    y: obstacle.y,
+    width: obstacle.width,
+    height: obstacle.height
+};
+
+const collision =
+    playerBox.x < obstacleBox.x + obstacleBox.width &&
+    playerBox.x + playerBox.width > obstacleBox.x &&
+    playerBox.y < obstacleBox.y + obstacleBox.height &&
+    playerBox.y + playerBox.height > obstacleBox.y;
+
+//=== stop player if hit without jumping ===
+const onGround = playerY >= GROUND_Y;
+
+if (collision && onGround) {
+    isBlocked = true;
+    isRunning = false;
+}
+
+
+//=== obstacle disappears after sucessful jump
+if (obstacle.x + obstacle.width < Player_Start_X) {
+    obstacle.active = false;
+    isBlocked = false;
+}
+
 
 
     //=== RESET OBSTACLE WHEN OFF SCREEN ===
 if (obstacle.x + obstacle.width < 0) {
-    obstacle.x = canvas.width + Math.random() * 500; // Reset position with random offset
+    obstacle.x = canvas.width + Math.random() * 500;
+    obstacle.active = true;
+    isBlocked = false;
 }
+
 
 requestAnimationFrame(animate);
 }
