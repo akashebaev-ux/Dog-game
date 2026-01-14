@@ -4,8 +4,14 @@ const canvas = document.getElementById("backgroundCanvas"); //== gets the canvas
 const ctx = canvas.getContext("2d"); //== drawing tool (draw images, shapes, clear screen)
 
 //=== canvas size - full screen===
-canvas.width = window.innerWidth;
-canvas.height = window.innerHeight;
+
+function resizeCanvas() {
+  canvas.width = window.innerWidth;
+  canvas.height = window.innerHeight;
+}
+
+resizeCanvas();
+window.addEventListener("resize", resizeCanvas);
 
 //===STEP 2 GAME SETTINGS ===
 
@@ -23,14 +29,15 @@ const playerHeight = 300; // sprite size
 
 //=== the main character's position  === 
 const Player_Start_X = 150; // fixed horizontal position (player stays)
-const GROUND_Y = canvas.height - playerHeight - 50; // floor position
+const FLOOR_OFFSET = 50;
+let GROUND_Y = canvas.height - playerHeight - FLOOR_OFFSET; // floor position
 const GRAVITY = 1; // pulls player down every frame
 const JUMP_FORCE = 20; // how strong jump is 
 
 //=== STEP 4 PLAYER STATE VARIABLES ===
 
-let isJumping = false; // right key held 
-let isRunning = false; // player in air 
+let isJumping = false; // player is in the air
+let isRunning = false; // right key held
 
 let playerY = GROUND_Y; // vertical position
 let velocityY = 0; // vertical speed
@@ -68,6 +75,10 @@ for (let i = 1; i <= images_Jump; i++) {
 function animate() {
         ctx.clearRect(0, 0, canvas.width, canvas.height); // animate() runs every frame; clearRect() clears previous frame
 
+        //=== Update ground if canvas resized ===
+GROUND_Y = canvas.height - playerHeight - FLOOR_OFFSET;
+
+
 // STEP 8.1 GRAVITY AND FALLING ===
 
 velocityY += GRAVITY; // Apply gravity
@@ -78,6 +89,7 @@ playerY += velocityY; // Update player vertical position
 // Check for ground collision (Prevents falling through floor)
 if (playerY >= GROUND_Y) {
     playerY = GROUND_Y;
+    velocityY = 0;
     isJumping = false;
     jumpFrame = 0; // Reset jump frame counter
 }
@@ -89,6 +101,7 @@ if (isJumping) {
     const index = Math.floor(jumpFrame / 6);
     image = playerJumpImages[Math.min(index, playerJumpImages.length - 1)];
     jumpFrame++;
+    runFrame = 0;
 } //== Slows jump animation and stops at last frame
 else if (isRunning) {
     const index = Math.floor(runFrame / staggerFrames) % playerRunImages.length;
@@ -96,9 +109,13 @@ else if (isRunning) {
     runFrame++;
 } else {
     image = playerRunImages[0];
-    gameFrame = 0;
 }
-ctx.drawImage(image, Player_Start_X, canvas.height - playerHeight - 50, playerWidth, playerHeight);
+
+// === Draw Player ===
+ctx.drawImage(image, 
+    Player_Start_X, 
+    playerY, playerWidth, playerHeight
+);
 requestAnimationFrame(animate);
 }
 animate();
@@ -112,11 +129,7 @@ document.addEventListener("keydown", (e) => {
        isJumping = true; // Trigger jump
          velocityY = -JUMP_FORCE; // Apply jump force
         jumpFrame = 0;
-    }
-
-    }); 
-
-    document.addEventListener("keydown", (e) => {
+    } 
     // Run
     if (e.code === "ArrowRight") {
         isRunning = true;
