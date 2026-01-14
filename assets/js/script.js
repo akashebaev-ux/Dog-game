@@ -21,8 +21,8 @@ const images_Jump = 11; // number of jumping images
 //=== to slower the image ===
 const staggerFrames = 14;
 
-const playerWidth = 300; // sprite size 
-const playerHeight = 300; // sprite size
+const playerWidth = 400; // sprite size 
+const playerHeight = 400; // sprite size
 
 //=== BACKGROUND IMAGE ===
 const backgroundImage = new Image();
@@ -54,6 +54,9 @@ let isBlocked = false; // stops player after collision
 let playerY = GROUND_Y; // vertical position
 let velocityY = 0; // vertical speed
 
+let rightKeyHeld = false;
+let obstaclePassed = false;
+
 
 //STEP 5 ANIMATION FRAME COUNTERS
 
@@ -83,10 +86,10 @@ for (let i = 1; i <= images_Jump; i++) {
 
 //=== STEP 7.5 OBSTACLE SETTINGS ===
 const obstacle = {
-    x: canvas.width +300,
+    x: canvas.width + 300, // starts off screen
     y: GROUND_Y + 150,
-    width: 200,
-    height: 120, // starts off screen
+    width: 300,
+    height: 200, // starts off screen
     active: true // obstacle disappears after passing
 };
 
@@ -99,7 +102,7 @@ function animate() {
         //=== MOVE WORLD ===
         if (isRunning && !isBlocked) {
             bgX -= bgSpeed;
-           if (obstacle.active) obstacle.x -= bgSpeed; // Move obstacle with background
+         obstacle.x -= bgSpeed; // Move obstacle with background
         }
         if (bgX <= -canvas.width) {
             bgX = 0;
@@ -128,6 +131,11 @@ if (playerY >= GROUND_Y) {
     velocityY = 0;
     isJumping = false;
     jumpFrame = 0; // Reset jump frame counter
+
+//=== RESUME RUNNING AFTER LANDING ===
+     if (rightKeyHeld) {
+            isRunning = true;
+        }
 }
 
 //=== STEP 8.3 SELECT PLAYER IMAGE ===
@@ -139,7 +147,7 @@ if (isJumping) {
     jumpFrame++;
     runFrame = 0;
 } //== Slows jump animation and stops at last frame
-else if (isRunning && !isBlocked) {
+else if (isRunning) {
     const index = Math.floor(runFrame / staggerFrames) % playerRunImages.length;
     image = playerRunImages[index];
     runFrame++;
@@ -167,18 +175,20 @@ ctx.drawImage(
 
 //=== STEP 8.4 COLLISION DETECTION ===
 const playerBox = {
-        x: Player_Start_X + 80,
-        y: playerY + 100,
-        width: playerWidth - 160,
-        height: playerHeight - 140
+    x: Player_Start_X + 200,
+    y: playerY + 40,
+    width: playerWidth - 250,
+    height: playerHeight - 150
 };
 
+
 const obstacleBox = {
-    x: obstacle.x,
-    y: obstacle.y,
-    width: obstacle.width,
-    height: obstacle.height
+    x: obstacle.x + 100,
+    y: obstacle.y + 80,
+    width: obstacle.width - 220,
+    height: obstacle.height - 150
 };
+
 
 const collision =
     playerBox.x < obstacleBox.x + obstacleBox.width &&
@@ -189,17 +199,18 @@ const collision =
 //=== stop player if hit without jumping ===
 const onGround = playerY >= GROUND_Y;
 
-if (collision && onGround) {
+if (obstacle.active &&collision && !isJumping && onGround) {
     isBlocked = true;
     isRunning = false;
 }
+  if (!obstaclePassed && obstacle.x + obstacle.width < Player_Start_X + 50) {
+        obstaclePassed = true;
+        obstacle.active = false;
+        isBlocked = false;
 
+        if (rightKeyHeld) isRunning = true;
+    }
 
-//=== obstacle disappears after sucessful jump
-if (obstacle.x + obstacle.width < Player_Start_X) {
-    obstacle.active = false;
-    isBlocked = false;
-}
 
 
 
@@ -208,6 +219,8 @@ if (obstacle.x + obstacle.width < 0) {
     obstacle.x = canvas.width + Math.random() * 500;
     obstacle.active = true;
     isBlocked = false;
+        obstaclePassed = false;
+     if (rightKeyHeld) isRunning = true;
 }
 
 
@@ -227,12 +240,15 @@ document.addEventListener("keydown", (e) => {
     } 
     // Run
     if (e.code === "ArrowRight") {
-        isRunning = true;
+         rightKeyHeld = true;
+         isRunning = true;
+       
     }
 }); 
  document.addEventListener("keyup", (e) => {
     // Stop running
     if (e.code === "ArrowRight") {
+        rightKeyHeld = false;
         isRunning = false;
     }
 }); 
