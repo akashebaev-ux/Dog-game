@@ -31,7 +31,7 @@ function getAspectRatio() {
 function getFloorOffset() {
     const ratio = getAspectRatio();
     if (ratio > 1.9) return 1100 * scale; // very tall phones
-    if (ratio > 1.6) return 1100 * scale; // normal phones
+    if (ratio > 1.6) return 900 * scale; // normal phones
     if (ratio > 1.2) return 780 * scale; // tablets 
     return 260 * scale; // desktop
 }
@@ -82,7 +82,7 @@ const bgSpeed = 6;
 
 //=== OBSTACLE IMAGE === 
 const obstacleImage = new Image();
-obstacleImage.src = "assets/images/stone.png";
+obstacleImage.src = "assets/images/stone.webp";
 
 //=== RANDOM SPAWN SETTINGS ===
 const MIN_OBSTACLE_GAP = 300; // minimum gap between obstacles
@@ -289,8 +289,8 @@ if (isRunning && !gameOver) {
 }
 // === RESPONSIVE CHANGE scaled text ===
 ctx.fillStyle = "white";
-ctx.font = `${20 * scale}px Arial`;
-ctx.fillText(`Score: ${score}`, 30 * scale, 50 * scale);
+ctx.font = `${60 * scale}px Arial`;
+ctx.fillText(`Score: ${score}`, 60 * scale, 100 * scale);
 
 //=== WIN CONDITION ===
 if (score > 100 && !gameWon && !gameOver) {
@@ -428,10 +428,10 @@ canvas.addEventListener("touchstart", (e) => {
         isJumping = true; // Trigger jump
         velocityY = -getJumpForce(); // Apply jump force
         jumpFrame = 0;
-    }
+    } isRunning = false;
 }, {passive: false});
 
 canvas.addEventListener("touchend", (e) => {
     touchHeld = false;
-    isRunning = false;
+    
 });
