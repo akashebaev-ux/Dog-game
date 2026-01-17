@@ -116,7 +116,7 @@ let isRunning = false; // right key held
 let rightKeyHeld = false;
 
 
-
+let touchHeld = false;
 
 //STEP 5 ANIMATION FRAME COUNTERS
 
@@ -203,7 +203,7 @@ function animate() {
        
         obstacle.y = GROUND_Y + playerHeight - obstacle.height * scale; // Update obstacle Y position
         //=== MOVE WORLD ===
-        if (isRunning && !gameOver && !gameWon) {
+        if (isRunning || touchHeld && !gameOver && !gameWon) {
             bgX -= bgSpeed * scale;
          if (obstacle.active) {obstacle.x -= bgSpeed * scale;} // Move obstacle with background
 
@@ -420,15 +420,18 @@ if ((gameOver || gameWon) && e.code === "KeyR") {
 canvas.addEventListener("touchstart", (e) => {
     e.preventDefault();
 
+    touchHeld = true;
+    isRunning = true;
+
     // Jump
     if (!isJumping) {
         isJumping = true; // Trigger jump
         velocityY = -getJumpForce(); // Apply jump force
-        
+        jumpFrame = 0;
     }
-    isRunning = true;
-});
+}, {passive: false});
 
 canvas.addEventListener("touchend", (e) => {
+    touchHeld = false;
     isRunning = false;
 });
