@@ -241,7 +241,7 @@ if (playerY >= GROUND_Y && !gameOver) {
     jumpFrame = 0; // Reset jump frame counter
 
 //=== RESUME RUNNING AFTER LANDING ===
-     if (rightKeyHeld) {
+     if (rightKeyHeld || touchHeld) {
             isRunning = true;
         }
 }
