@@ -142,6 +142,11 @@ The game is designed as a simple, forward-moving challenge:
 * When the player reaches a **score of 100**, a **win screen animation** appears, accompanied by a winning sound effect.
 
 * The player can press **R** to restart the game after winning.
+  
+
+<img  src="https://github.com/user-attachments/assets/2d496e95-0db1-40f6-9f0a-966be53aa80a" width="600">
+
+
 
 If the player fails to jump over an obstacle:
 
@@ -150,6 +155,10 @@ If the player fails to jump over an obstacle:
 * A hit sound effect is played.
 
 * The player can press **R** to restart the game.
+  
+
+  <img  src="https://github.com/user-attachments/assets/2645b147-0448-4f07-a1d0-176da788d8a3" width="600">
+
 
 # Controls
 
