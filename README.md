@@ -144,7 +144,7 @@ The game is designed as a simple, forward-moving challenge:
 * The player can press **R** to restart the game after winning.
   
 
-<img  src="https://github.com/user-attachments/assets/2d496e95-0db1-40f6-9f0a-966be53aa80a" width="600">
+  <img  src="https://github.com/user-attachments/assets/2d496e95-0db1-40f6-9f0a-966be53aa80a" width="600">
 
 
 
@@ -382,8 +382,7 @@ To ensure code quality, I validated every HTML page and the CSS file using the o
 
 |   |   |
 |---|---|
-
-|<img  src="https://github.com/user-attachments/assets/092ff79e-600c-4653-aefd-b5b516901810" width="600">|  <img  src="https://github.com/user-attachments/assets/676018f2-2553-4145-98a2-041e899baefe" width="600">|
+|<img  src="https://github.com/user-attachments/assets/092ff79e-600c-4653-aefd-b5b516901810" width="600">|<img  src="https://github.com/user-attachments/assets/676018f2-2553-4145-98a2-041e899baefe" width="600">|
 
 
 ----
