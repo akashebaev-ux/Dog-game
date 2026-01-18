@@ -15,7 +15,30 @@ It is designed for desktop and mobile browsers, with responsive controls and eng
 The goal of the game is to **avoid enemies and reach a destination**.
 
 ---
+- [1.User Experience](#1-user-experience)
+- [1.1 User Stories](#11-user-stories)
+- [2. Design](#2-design)
+- [2.1 Colour Scheme](#21-colour-scheme)
+- [2.2 Typography](#22-typography)
+- [3. Features](#3-features)
+- [4. Technologies Used](#4-technologies-used)
+- [4.1 Languages Used](#41-languages-used)
+- [4.2 Frameworks, Libraries & Programs Used](#42-frameworks-libraries--programs-used)
+- [5. Deployment](#5-deployment)
+- [6. Testing](#6-testing)
+- [6.1 Testing User Stories](#61-testing-user-stories)
+- [6.2 Fixing Bugs](#62-fixing-bugs)
+- [6.3 Manual Testing](#63-manual-testing)
+- [6.4 Lighthouse](#64-lighthouse)
+- [6.5 Validation](#65-validation)
+- [6.5.1 W3C HTML and CSS](#651-w3c-html-and-css)
+- [7. Credits](#7-credits)
+- [7.1 Content](#72-content)
+- [7.2 Media](#73-media)
+- [7.3 Documentation and testing](#74-documentation-and-testing)
+- [7.4 Authors and Acknowledgments](#75-authors-and-acknowledgments)
 
+---
 
 ## 1. User Experience
 
@@ -346,14 +369,19 @@ Using the Lighthouse feature in Chrome DevTools, I assessed the website’s perf
 
 To ensure code quality, I validated every HTML page and the CSS file using the official W3C validators.
 
-<img  src="https://github.com/user-attachments/assets/092ff79e-600c-4653-aefd-b5b516901810" width="600">
+|   |   |
+|---|---|
 
-<img  src="https://github.com/user-attachments/assets/676018f2-2553-4145-98a2-041e899baefe" width="600">
+|<img  src="https://github.com/user-attachments/assets/092ff79e-600c-4653-aefd-b5b516901810" width="300">|<img  src="https://github.com/user-attachments/assets/676018f2-2553-4145-98a2-041e899baefe" width="300">|
 
+
+----
 
 CSS validator [Jigsaw](https://jigsaw.w3.org/css-validator/validator)
 
 <img src="https://github.com/user-attachments/assets/db51eff5-3b6f-4b27-b0b5-4a9a24810fbd" width="600">
+
+
 **Note:** .scroll-gallery::-webkit-scrollbar { display: none; } was used to apply custom styles to the scrollbar and hide it while preserving its primary functionality. 
 
 JavaScript 
@@ -361,7 +389,7 @@ JavaScript
 
 # 7. Credits
 
-## 7.2 Content
+## 7.1 Content
 
 [ChatGPT (OpenAI)](https://chatgpt.com/) – Used to assist in generating and refining portions of the website’s images.
 [ImageColorPicker](https://imagecolorpicker.com/) – Referenced in section 2.1 for color palette generation and design inspiration.
@@ -369,7 +397,7 @@ JavaScript
 [Favicon.io](https://favicon.io/) – Used to create the website’s emoji favicon.
 
 
-## 7.3 Media
+## 7.2 Media
 
 - [Pixverse.ai](https://app.pixverse.ai/onboard) – utilized for creating customized AI-generated videos.
 
@@ -379,7 +407,7 @@ Sound Effect by <a href="https://pixabay.com/users/universfield-28281460/?utm_so
 - Used to source the winner sound effect for the game.
 Sound Effect by <a href="https://pixabay.com/users/superpuyofãns1234-45913026/?utm_source=link-attribution&utm_medium=referral&utm_campaign=music&utm_content=404167">Sophia Conçeição</a> from <a href="https://pixabay.com/sound-effects//?utm_source=link-attribution&utm_medium=referral&utm_campaign=music&utm_content=404167">Pixabay</a>
 
-## 7.4 Documentation and testing
+## 7.3 Documentation and testing
 
 The sources listed below served as foundational references in shaping the structure, development approach, and documentation of this project:
 
@@ -397,7 +425,7 @@ The sources listed below served as foundational references in shaping the struct
  – Used as inspiration and a learning reference for game mechanics and structure
 
 
-## 7.5 Authors and Acknowledgments
+## 7.4 Authors and Acknowledgments
 
 Created and maintained by Akashebaev-UX.
 
