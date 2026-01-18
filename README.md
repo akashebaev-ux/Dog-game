@@ -372,7 +372,7 @@ To ensure code quality, I validated every HTML page and the CSS file using the o
 |   |   |
 |---|---|
 
-|<img  src="https://github.com/user-attachments/assets/092ff79e-600c-4653-aefd-b5b516901810" width="300">|<img  src="https://github.com/user-attachments/assets/676018f2-2553-4145-98a2-041e899baefe" width="300">|
+|<img  src="https://github.com/user-attachments/assets/092ff79e-600c-4653-aefd-b5b516901810" width="600">|  <img  src="https://github.com/user-attachments/assets/676018f2-2553-4145-98a2-041e899baefe" width="600">|
 
 
 ----
