@@ -232,7 +232,7 @@ Magic Forest is built with:
 - [Amiresponsive](https://ui.dev/amiresponsive) – Used to display how the website appears across multiple device sizes.
 - [Pixverse.ai](https://app.pixverse.ai/onboard) – Used to generate the custom AI-created video.
 - [Ezgif](https://ezgif.com/video-to-gif) - Used to generate the GIF images.
-  
+- [FreeConvert](https://www.freeconvert.com/) – Used to change the image format from PNG to WebP.
 - [ImageColorPicker.com](https://imagecolorpicker.com/) – Used to select and refine colour values for the game design.
 - [miniWebtool] (ru.miniwebtool.com) – Used to extract sprite images from animation videos.
 - [Carve.Photos](carve.photos) – Used to remove image backgrounds and create transparent assets.
