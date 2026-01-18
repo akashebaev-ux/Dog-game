@@ -4,6 +4,8 @@
 **Magic Forest** is a browser-based interactive game for kids.
 Players explore an enchanted forest, overcome obstacles, and interact with magical elements in a rich, immersive environment.
 
+<img  src="https://github.com/user-attachments/assets/57936b19-966c-4280-844f-982794f88d55" width="600">
+
 ---
 
 ## 📖 Overview
@@ -95,8 +97,14 @@ The **Magic Forest** game consists of **two main pages**, accessible via the **H
 **Home Page**
 Presents general information about the game and includes a **Play** button that allows users to start the game.
 
+<img src="https://github.com/user-attachments/assets/b090dcee-15e3-45ae-8121-fe8012a22734" width="600">
+
+
 **Game Page**
 Hosts the game itself and includes a **Home** button, allowing players to return to the main page at any time.
+
+<img  src="https://github.com/user-attachments/assets/ba46305c-3911-4516-9e51-e71bdc862767" width="600">
+
 
 # Gameplay Description
 
@@ -191,53 +199,207 @@ Magic Forest is built with:
 - [Pixverse.ai](https://app.pixverse.ai/onboard) – Used to generate the custom AI-created video.
 - [Ezgif](https://ezgif.com/video-to-gif) - Used to generate the GIF images.
   
-- [ImageColorPicker.com](https://imagecolorpicker.com/)
-- [miniWebtool] (ru.miniwebtool.com)
-- [Carve.Photos](carve.photos)
+- [ImageColorPicker.com](https://imagecolorpicker.com/) – Used to select and refine colour values for the game design.
+- [miniWebtool] (ru.miniwebtool.com) – Used to extract sprite images from animation videos.
+- [Carve.Photos](carve.photos) – Used to remove image backgrounds and create transparent assets.
 
 
-## 🚢 Installation
 
-To run the game locally:
 
-1. Clone the repository
+## 5. Deployment
 
-   ```bash
+**Cloning the Repository / Running the Project Locally**
+
+# Local Development
+
+The project repository was cloned to the local development environment using the following steps:
+
+1. Installed **GitHub Desktop**.
+
+2. Logged in to a GitHub account through the client.
+
+3. Selected **File → Clone Repository**.
+
+4. Cloned the repository using the following command:
+
+
+      ```bash
    git clone https://github.com/akashebaev-ux/Magic-forest.git
    ```
-2. Open **`game.html`** in your browser.
 
-No build tools or servers are required — the game runs in any modern browser.
+Selected the **Magic Forest** repository, specified the destination folder, and clicked **Clone**.
 
----
+This process allowed the project to be accessed, modified, and run locally for development and testing purposes.
 
-## 🔍 Development
 
-For development:
+# Publishing the Site
 
-* Use Chrome DevTools or similar tools for debugging
-* Keep code modular by organizing functions and events
-* Test on multiple screen sizes to ensure responsive gameplay
+The project was deployed using **GitHub Pages** by following these steps:
 
----
+1. Opened the project’s GitHub repository and navigated to **Settings**.
 
-## 📄 Deployment
+2. Selected **Pages** under **Code and automation**.
+
+3. Configured the deployment settings as follows:
+
+* **Source**: Deploy from a branch
+
+* **Branch**: main
+
+* **Folder**: / (root)
+
+Once saved, the site was automatically deployed.
+
+
+# Live Deployment
 
 This project is deployed via **GitHub Pages**:
 
-* Hosted at `akashebaev-ux.github.io/Magic-forest/`
-* Automatically updated when changes are pushed to `main` branch
+* 🌐 **Live site**: ```https://akashebaev-ux.github.io/Magic-forest/```
+
+* 🔄 Automatically updated whenever changes are pushed to the **main** branch
+
 
 ---
 
-## 🧪 Testing
+## 6. Testing
 
-Magic Forest should be tested for:
+## 6.1 Testing User Stories
 
-* ✔ Responsiveness on desktop and mobile
-* ✔ Cross-browser compatibility (Chrome, Firefox, Safari)
-* ✔ Control responsiveness and input events
-* ✔ Asset loading performance
+**Testing Client Goals**
+
+**Goal: Ability to view the website across a variety of screen sizes**
+Result: ✔ The layout is fully responsive and displays correctly across multiple devices and modern browsers.
+
+**Goal: Access to easy-to-use interactive elements**
+Result: ✔ Partially met. Core gameplay elements function as intended; however, some interactivity is limited on mobile devices. Future iterations should introduce enhanced touch-based controls and additional visual cues to improve the mobile user experience.
+
+**Testing Player Goals**
+
+**Goal: Ability to play and enjoy the game**
+Result: ✔ The game includes animated visuals, responsive movement, and engaging gameplay mechanics suitable for the target age group.
+
+**Goal: Clear and easy-to-understand instructions**
+Result: ✔ Instructions are concise and the game operates consistently across multiple browsers, ensuring a smooth and intuitive experience.
+
+
+## 6.2 Fixing Bugs
+
+Throughout the development phase, testing was conducted continuously. **Chrome DevTools** played a key role in reviewing the site, identifying issues, and verifying fixes as new features were implemented.
+
+Several issues were discovered during testing and resolved accordingly:
+
+**📱 Motion Control Issues on Mobile Devices**
+
+* The touch control system initially failed to respond correctly on mobile devices.
+
+* This issue occurred because the game loop continuously refreshed the canvas, causing certain control functions to interrupt the main *run* function.
+
+* Additionally, the background image was applied simultaneously via *CSS* and *JavaScript*, which interfered with touch input detection and rendered the controls ineffective.
+
+* The issue was diagnosed using **Chrome DevTools** and **JSFiddle**, allowing the logic conflict to be identified and resolved.
+
+* After refactoring the background rendering logic and adjusting the game loop, touch controls functioned as expected.
+
+
+## 6.3 Manual Testing
+
+**Site Function Testing**
+
+Comprehensive manual testing was carried out across multiple devices to ensure consistent functionality, performance, and responsiveness.
+
+# Devices Tested
+
+* **Laptop:**
+
+* MacBook Air 13" (2025)
+
+* ASUS X515 i5 (2023)
+
+* **Mobile:**
+
+* iPhone 16
+
+* iPhone 12
+
+* **Tablet:**
+
+* Samsung Galaxy Tab S7
+
+**Browsers Used:**
+
+- Google Chrome
+- Safari
+
+All key features, interactive elements, and page layouts were reviewed across each device and browser combination to verify correct behaviour, responsiveness, and overall usability.
+
+
+## 6.4 Lighthouse
+
+Using the Lighthouse feature in Chrome DevTools, I assessed the website’s performance, accessibility, and best-practice compliance for both mobile and desktop views.
+
+<img  src="https://github.com/user-attachments/assets/0208a835-75ac-44ab-9814-a10c0c4dfa3b" width="600">
+
+
+## 6.5 Validation
+## 6.5.1 W3C HTML and CSS
+
+To ensure code quality, I validated every HTML page and the CSS file using the official W3C validators.
+
+<img  src="https://github.com/user-attachments/assets/092ff79e-600c-4653-aefd-b5b516901810" width="600">
+
+<img  src="https://github.com/user-attachments/assets/676018f2-2553-4145-98a2-041e899baefe" width="600">
+
+
+CSS validator [Jigsaw](https://jigsaw.w3.org/css-validator/validator)
+
+<img src="https://github.com/user-attachments/assets/db51eff5-3b6f-4b27-b0b5-4a9a24810fbd" width="600">
+**Note:** .scroll-gallery::-webkit-scrollbar { display: none; } was used to apply custom styles to the scrollbar and hide it while preserving its primary functionality. 
+
+JavaScript 
+
+
+# 7. Credits
+
+## 7.2 Content
+
+[ChatGPT (OpenAI)](https://chatgpt.com/) – Used to assist in generating and refining portions of the website’s images.
+[ImageColorPicker](https://imagecolorpicker.com/) – Referenced in section 2.1 for color palette generation and design inspiration.
+[Google Fonts](https://fonts.google.com/) – Referenced in section 2.2 for font selection and typography.
+[Favicon.io](https://favicon.io/) – Used to create the website’s emoji favicon.
+
+
+## 7.3 Media
+
+- [Pixverse.ai](https://app.pixverse.ai/onboard) – utilized for creating customized AI-generated videos.
+
+- [Pixabay](pixabay.com) – Used to source the hit sound effect for the game.
+Sound Effect by <a href="https://pixabay.com/users/universfield-28281460/?utm_source=link-attribution&utm_medium=referral&utm_campaign=music&utm_content=352447">Universfield</a> from <a href="https://pixabay.com//?utm_source=link-attribution&utm_medium=referral&utm_campaign=music&utm_content=352447">Pixabay</a>
+
+- Used to source the winner sound effect for the game.
+Sound Effect by <a href="https://pixabay.com/users/superpuyofãns1234-45913026/?utm_source=link-attribution&utm_medium=referral&utm_campaign=music&utm_content=404167">Sophia Conçeição</a> from <a href="https://pixabay.com/sound-effects//?utm_source=link-attribution&utm_medium=referral&utm_campaign=music&utm_content=404167">Pixabay</a>
+
+## 7.4 Documentation and testing
+
+The sources listed below served as foundational references in shaping the structure, development approach, and documentation of this project:
+
+* Love Math and Boardwalk Games – README templates and overall website structures used as guidance
+* Markdown Cheat Sheet
+ – Used for correct Markdown syntax and formatting
+* Pawsome README Template – Shared via Discord and referenced for README organisation
+* Diffchecker
+ – Used to compare file changes during development
+* W3C Autoprefixer
+ – Used to ensure CSS browser compatibility
+* Amiresponsive
+ – Used to display the website across multiple device screen sizes
+* [YouTube Reference Video](https://youtu.be/CY0HE277IBM?si=WliDk4A9ui5E4MNB)
+ – Used as inspiration and a learning reference for game mechanics and structure
+
+
+## 7.5 Authors and Acknowledgments
+
+Created and maintained by Akashebaev-UX.
 
 ---
 
@@ -264,6 +426,3 @@ Original game concept and implementation.
 
 🚧 **In Progress / Growing**
 Magic Forest continues to be refined with new gameplay mechanics and features.
-
-
-[1]: https://akashebaev-ux.github.io/Magic-forest/game.html "Magic Forest"
