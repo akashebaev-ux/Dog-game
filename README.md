@@ -382,9 +382,13 @@ CSS validator [Jigsaw](https://jigsaw.w3.org/css-validator/validator)
 <img src="https://github.com/user-attachments/assets/db51eff5-3b6f-4b27-b0b5-4a9a24810fbd" width="600">
 
 
-**Note:** .scroll-gallery::-webkit-scrollbar { display: none; } was used to apply custom styles to the scrollbar and hide it while preserving its primary functionality. 
+**Note:** .scroll-gallery::-webkit-scrollbar { display: none; } was used to apply custom styles to the scrollbar and hide it while preserving its primary functionality.
 
-JavaScript 
+---
+
+JavaScript validator JSHint [JSHint](https://jshint.com/)
+
+<img  src="https://github.com/user-attachments/assets/363c0c2e-f9de-4c79-a845-616642bd9a72" width="600">
 
 
 # 7. Credits
