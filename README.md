@@ -238,6 +238,7 @@ Magic Forest is built with:
 - [ImageColorPicker.com](https://imagecolorpicker.com/) – Used to select and refine colour values for the game design.
 - [miniWebtool] (ru.miniwebtool.com) – Used to extract sprite images from animation videos.
 - [Carve.Photos](carve.photos) – Used to remove image backgrounds and create transparent assets.
+- [I123APPS](online-video-cutter.com) — Used to crop videos.
 
 
 
