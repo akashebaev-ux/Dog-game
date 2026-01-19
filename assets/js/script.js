@@ -324,7 +324,7 @@ if (gameWon) {
     ctx.shadowBlur = 0;
     ctx.font = "36px Arial";
     ctx.fillStyle = "white";
-    ctx.fillText("Tap to Restart", canvas.width / 2, canvas.height / 2 + 40);
+    ctx.fillText("Press R/Tap to Restart", canvas.width / 2, canvas.height / 2 + 40);
     ctx.textAlign = "left";
 
      requestAnimationFrame(animate);
@@ -376,7 +376,7 @@ if (gameOver) {
     ctx.fillText("GAME OVER", canvas.width / 2, canvas.height / 2 - 40);
     
     ctx.font = "36px Arial";
-    ctx.fillText("Tap to Restart", canvas.width / 2, canvas.height / 2 + 40);
+    ctx.fillText("Press R/Tap to Restart", canvas.width / 2, canvas.height / 2 + 40);
     ctx.textAlign = "left";
 
 } 
