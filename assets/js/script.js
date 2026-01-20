@@ -315,14 +315,14 @@ if (gameWon) {
     const glow = Math.abs(Math.sin(winAnimFrame * 0.05)) * 30;
 
     ctx.textAlign = "center";
-    ctx.font = "80px Arial Black";
+    ctx.font = `${80 * scale}px Arial Black`;
     ctx.shadowColor = "gold";
     ctx.shadowBlur = glow;
     ctx.fillStyle = "gold";
     ctx.fillText("YOU WIN!", canvas.width / 2, canvas.height / 2 - 40 + bounce);
 
     ctx.shadowBlur = 0;
-    ctx.font = "36px Arial";
+    ctx.font = `${36 * scale}px Arial`;
     ctx.fillStyle = "white";
     ctx.fillText("Press R/Tap to Restart", canvas.width / 2, canvas.height / 2 + 40);
     ctx.textAlign = "left";
@@ -372,10 +372,10 @@ if (gameOver) {
     ctx.fillStyle = "white";
     ctx.textAlign ="center";
 
-    ctx.font = "72px Arial";
+    ctx.font = `${72 * scale}px Arial`;
     ctx.fillText("GAME OVER", canvas.width / 2, canvas.height / 2 - 40);
     
-    ctx.font = "36px Arial";
+    ctx.font = `${36 * scale}px Arial`;
     ctx.fillText("Press R/Tap to Restart", canvas.width / 2, canvas.height / 2 + 40);
     ctx.textAlign = "left";
 
