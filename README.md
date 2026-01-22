@@ -343,6 +343,8 @@ Several issues were discovered during testing and resolved accordingly:
 
 * The issue was diagnosed using **Chrome DevTools** and **JSFiddle**, allowing the logic conflict to be identified and resolved.
 
+* I updated the image format from PNG to WebP to improve Lighthouse accessibility scores.
+
 * After refactoring the background rendering logic and adjusting the game loop, touch controls functioned as expected.
 
 
@@ -467,10 +469,11 @@ Potential enhancements include:
 
 ---
 
-## 👤 Author
+## 👤 Authors and Acknowledgments
 
-**Akashebaev-UX**
-Original game concept and implementation.
+Created and maintained by **Akashebaev-UX**. Special thanks for the support provided throughout the completion of this project.
+
+**Tindy Chan** — Facilitator at Code Institute, who generously contributed her time.
 
 ---
 
