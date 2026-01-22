@@ -308,9 +308,9 @@ This project is deployed via **GitHub Pages**:
 ## 6.1 Testing User Stories
 
 **Testing Client Goals**
-
-**Goal: Ability to view the website across a variety of screen sizes**
-Result: ✔ The layout is fully responsive and displays correctly across multiple devices and modern browsers.
+|   |   |   |
+|-----|-----|-----|-----|
+| **Goal: Ability to view the website across a variety of screen sizes** | Result: ✔ The layout is fully responsive and displays correctly across multiple devices and modern browsers. |
 
 **Goal: Access to easy-to-use interactive elements**
 Result: ✔ Partially met. Core gameplay elements function as intended; however, some interactivity is limited on mobile devices. Future iterations should introduce enhanced touch-based controls and additional visual cues to improve the mobile user experience.
