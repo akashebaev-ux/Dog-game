@@ -405,7 +405,7 @@ To ensure code quality, I validated every HTML page and the CSS file using the o
 
 ----
 
-CSS validator [Jigsaw](https://jigsaw.w3.org/css-validator/validator)
+CSS validator [Jigsaw](https://jigsaw.w3.org/css-validator/)
 
 <img src="https://github.com/user-attachments/assets/89b5c78b-eaa9-435a-b0fe-d2e38997faa0" width="600">
 
